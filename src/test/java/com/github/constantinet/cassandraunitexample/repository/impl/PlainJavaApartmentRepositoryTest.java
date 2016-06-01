@@ -106,12 +106,12 @@ public class PlainJavaApartmentRepositoryTest {
                         givenHouseNumber,
                         givenApartmentNumber)).all();
         assertThat(result, contains(notNullValue())); // contains only one element which is not null
-        assertThat(result.get(0).getString("city"), is(givenCity));
-        assertThat(result.get(0).getString("street"), is(givenStreet));
-        assertThat(result.get(0).getInt("house_number"), is(givenHouseNumber));
-        assertThat(result.get(0).getInt("apartment_number"), is(givenApartmentNumber));
-        assertThat(result.get(0).getString("owner"), is(givenOwner));
-        assertThat(result.get(0).getSet("features", String.class), is(givenFeatures));
+        errorCollector.checkThat(result.get(0).getString("city"), is(givenCity));
+        errorCollector.checkThat(result.get(0).getString("street"), is(givenStreet));
+        errorCollector.checkThat(result.get(0).getInt("house_number"), is(givenHouseNumber));
+        errorCollector.checkThat(result.get(0).getInt("apartment_number"), is(givenApartmentNumber));
+        errorCollector.checkThat(result.get(0).getString("owner"), is(givenOwner));
+        errorCollector.checkThat(result.get(0).getSet("features", String.class), is(givenFeatures));
     }
 
     @Test
@@ -133,12 +133,12 @@ public class PlainJavaApartmentRepositoryTest {
                         GIVEN_PK_HOUSE_NUMBER,
                         GIVEN_PK_APARTMENT_NUMBER)).all();
         assertThat(result, contains(notNullValue())); // contains only one element which is not null
-        assertThat(result.get(0).getString("city"), is(GIVEN_PK_CITY));
-        assertThat(result.get(0).getString("street"), is(GIVEN_PK_STREET));
-        assertThat(result.get(0).getInt("house_number"), is(GIVEN_PK_HOUSE_NUMBER));
-        assertThat(result.get(0).getInt("apartment_number"), is(GIVEN_PK_APARTMENT_NUMBER));
-        assertThat(result.get(0).getString("owner"), is(givenOwner));
-        assertThat(result.get(0).getSet("features", String.class), is(givenFeatures));
+        errorCollector.checkThat(result.get(0).getString("city"), is(GIVEN_PK_CITY));
+        errorCollector.checkThat(result.get(0).getString("street"), is(GIVEN_PK_STREET));
+        errorCollector.checkThat(result.get(0).getInt("house_number"), is(GIVEN_PK_HOUSE_NUMBER));
+        errorCollector.checkThat(result.get(0).getInt("apartment_number"), is(GIVEN_PK_APARTMENT_NUMBER));
+        errorCollector.checkThat(result.get(0).getString("owner"), is(givenOwner));
+        errorCollector.checkThat(result.get(0).getSet("features", String.class), is(givenFeatures));
     }
 
     @Test
